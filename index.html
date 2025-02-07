@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>免费资源导航</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .category-card {
+            background: rgba(255,255,255,0.9);
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .category-card:hover {
+            transform: translateY(-5px);
+        }
+        .wave-bg {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            z-index: -1;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(45deg, #4facfe 0%, #00f2fe 100%);
+        }
+    </style>
+</head>
+<body>
+    <div class="wave-bg"></div>
+    
+    <div class="container py-5">
+        <h1 class="text-center mb-5 text-white">免费资源导航</h1>
+
+        <!-- 网页模板与开发 -->
+        <div class="category-card p-4 mb-4">
+            <h3>📁 网页模板与开发</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <ul>
+                        <li><a href="https://www.zhanid.com/daohang/htmlrev.html" target="_blank">HTMLrev (1500+模板)</a>:cite[2]</li>
+                        <li><a href="https://www.mobanwang.com/" target="_blank">模板王 (10000+模板)</a>:cite[8]</li>
+                        <li><a href="https://zh-cn.site123.com/website-templates" target="_blank">SITE123模板库</a>:cite[4]</li>
+                    </ul>
+                </div>
+                <!-- 更多子分类... -->
+            </div>
+        </div>
+
+        <!-- 设计素材与工具 -->
+        <div class="category-card p-4 mb-4">
+            <h3>🎨 设计素材与工具</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <ul>
+                        <li><a href="https://www.mobanwang.com/tag/字体" target="_blank">也字工厂字体库</a>:cite[8]</li>
+                        <li><a href="https://www.bootstrapmb.com/tag/svg" target="_blank">SVG动画资源</a>:cite[6]</li>
+                    </ul>
+                </div>
+                <!-- 更多子分类... -->
+            </div>
+        </div>
+
+        <!-- 影视与动漫资源 -->
+        <div class="category-card p-4 mb-4">
+            <h3>🎬 影视与动漫</h3>
+            <ul>
+                <li><a href="https://www.91084.com/" target="_blank">影视资源模板库</a>:cite[10]</li>
+                <!-- 更多链接... -->
+            </ul>
+        </div>
+
+        <!-- 其他分类结构类似... -->
+
+    </div>
+
+    <!-- 动态波浪背景脚本 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <script>
+        // 基于网页6的波浪动画实现:cite[6]
+        function setup() {
+            createCanvas(windowWidth, windowHeight);
+        }
+        function draw() {
+            background(255, 50);
+            // 波浪动画代码...
+        }
+        windowResized = () => resizeCanvas(windowWidth, windowHeight);
+    </script>
+</body>
+</html>
