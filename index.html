@@ -3,88 +3,372 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>免费资源导航</title>
+    <title>免费资源上网大全 - 130+网站导航</title>
     <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <style>
+        :root {
+            --primary-color: #4facfe;
+            --gradient-bg: linear-gradient(45deg, var(--primary-color) 0%, #00f2fe 100%);
+        }
+        body {
+            background: var(--gradient-bg);
+            font-family: "Microsoft YaHei", sans-serif;
+            overflow-x: hidden;
+        }
         .category-card {
-            background: rgba(255,255,255,0.9);
+            background: rgba(255,255,255,0.97);
             border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
             transition: transform 0.3s;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(8px);
         }
         .category-card:hover {
             transform: translateY(-5px);
         }
-        .wave-bg {
+        .category-title {
+            color: #2c3e50;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 1rem;
+            margin: 1.5rem 0;
+        }
+        .resource-link {
+            color: #34495e;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            margin: 0.3rem 0;
+            border-radius: 8px;
+            display: block;
+            transition: all 0.2s;
+            position: relative;
+        }
+        .resource-link:hover {
+            background: rgba(79, 172, 254, 0.1);
+            transform: translateX(10px);
+        }
+        .resource-link::before {
+            content: "➤";
+            position: absolute;
+            left: -0.8rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+            color: var(--primary-color);
+        }
+        .resource-link:hover::before {
+            opacity: 1;
+        }
+        #waveCanvas {
             position: fixed;
             bottom: 0;
             left: 0;
             z-index: -1;
-            width: 100%;
-            height: 100vh;
-            background: linear-gradient(45deg, #4facfe 0%, #00f2fe 100%);
         }
     </style>
+	<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.createElement('input');
+    searchInput.placeholder = '输入关键词搜索...';
+    searchInput.style.cssText = 'width:80%;margin:20px auto;display:block;padding:10px;border-radius:25px;border:2px solid #4facfe;';
+    document.querySelector('.container').prepend(searchInput);
+
+    searchInput.addEventListener('input', function(e) {
+        const searchTerm = e.target.value.toLowerCase();
+        document.querySelectorAll('.resource-link').forEach(link => {
+            const isMatch = link.textContent.toLowerCase().includes(searchTerm);
+            link.style.display = isMatch ? 'block' : 'none';
+        });
+    });
+});
+</script>
 </head>
 <body>
-    <div class="wave-bg"></div>
+    <div id="waveCanvas"></div>
     
     <div class="container py-5">
-        <h1 class="text-center mb-5 text-white">免费资源导航</h1>
+        <h1 class="text-center mb-5 text-white display-4 fw-bold">🆓 免费资源导航</h1>
 
-        <!-- 网页模板与开发 -->
-        <div class="category-card p-4 mb-4">
-            <h3>📁 网页模板与开发</h3>
+        <!-- 文件转换工具 -->
+        <div class="category-card p-4">
+            <h3 class="category-title">📁 文件转换</h3>
             <div class="row">
                 <div class="col-md-4">
-                    <ul>
-                        <li><a href="https://www.zhanid.com/daohang/htmlrev.html" target="_blank">HTMLrev (1500+模板)</a>:cite[2]</li>
-                        <li><a href="https://www.mobanwang.com/" target="_blank">模板王 (10000+模板)</a>:cite[8]</li>
-                        <li><a href="https://zh-cn.site123.com/website-templates" target="_blank">SITE123模板库</a>:cite[4]</li>
-                    </ul>
+                    <a href="https://www.freeconvert.com/" class="resource-link" target="_blank" rel="noopener">FreeConvert（全能格式转换）</a>
+                    <a href="https://convertio.co/zh/" class="resource-link" target="_blank" rel="noopener">Convertio（支持1200+格式）</a>
+                    <a href="https://www.aconvert.com/cn/" class="resource-link" target="_blank" rel="noopener">Aconvert（文档处理）</a>
+                    <a href="https://www.ilovepdf.com/zh-cn" class="resource-link" target="_blank" rel="noopener">iLovePDF（PDF工具）</a>
+                    <a href="https://www.online-convert.com/" class="resource-link" target="_blank" rel="noopener">Online-Convert（专业转换）</a>
                 </div>
-                <!-- 更多子分类... -->
+                <div class="col-md-4">
+                    <a href="https://smallpdf.com/cn" class="resource-link" target="_blank" rel="noopener">Smallpdf（PDF解决方案）</a>
+                    <a href="https://www.zamzar.com/" class="resource-link" target="_blank" rel="noopener">Zamzar（批量转换）</a>
+                    <a href="https://www.office-converter.com/" class="resource-link" target="_blank" rel="noopener">Office-Converter（办公文档）</a>
+                    <a href="https://www.media.io/" class="resource-link" target="_blank" rel="noopener">Media.io（音视频处理）</a>
+                    <a href="https://www.files-conversion.com/" class="resource-link" target="_blank" rel="noopener">Files-Conversion（多平台支持）</a>
+                </div>
             </div>
         </div>
 
-        <!-- 设计素材与工具 -->
-        <div class="category-card p-4 mb-4">
-            <h3>🎨 设计素材与工具</h3>
+        <!-- AI工具 -->
+        <div class="category-card p-4">
+            <h3 class="category-title">🤖 AI工具</h3>
             <div class="row">
                 <div class="col-md-4">
-                    <ul>
-                        <li><a href="https://www.mobanwang.com/tag/字体" target="_blank">也字工厂字体库</a>:cite[8]</li>
-                        <li><a href="https://www.bootstrapmb.com/tag/svg" target="_blank">SVG动画资源</a>:cite[6]</li>
-                    </ul>
+                    <a href="https://ai-bot.cn/" class="resource-link" target="_blank" rel="noopener">AI导航网（聚合平台）</a>
+                    <a href="https://deepseek.com/" class="resource-link" target="_blank" rel="noopener">深度求索（代码AI）</a>
+                    <a href="https://www.moonshot.cn/" class="resource-link" target="_blank" rel="noopener">月之暗面Kimi（长文本）</a>
+                    <a href="https://tongyi.aliyun.com/" class="resource-link" target="_blank" rel="noopener">通义千问（阿里云）</a>
+                    <a href="https://yiyan.baidu.com/" class="resource-link" target="_blank" rel="noopener">文心一言（百度）</a>
                 </div>
-                <!-- 更多子分类... -->
+                <div class="col-md-4">
+                    <a href="https://chatglm.cn/" class="resource-link" target="_blank" rel="noopener">智谱AI（清华团队）</a>
+                    <a href="https://www.midjourney.com/" class="resource-link" target="_blank" rel="noopener">Midjourney（绘画AI）</a>
+                    <a href="https://www.remove.bg/" class="resource-link" target="_blank" rel="noopener">Remove.bg（AI抠图）</a>
+                    <a href="https://www.beta.musicfy.com/" class="resource-link" target="_blank" rel="noopener">Musicfy（AI音乐）</a>
+                    <a href="https://www.pexels.com/ai/" class="resource-link" target="_blank" rel="noopener">Pexels AI（图片生成）</a>
+                </div>
             </div>
         </div>
 
-        <!-- 影视与动漫资源 -->
-        <div class="category-card p-4 mb-4">
-            <h3>🎬 影视与动漫</h3>
-            <ul>
-                <li><a href="https://www.91084.com/" target="_blank">影视资源模板库</a>:cite[10]</li>
-                <!-- 更多链接... -->
-            </ul>
+        <!-- 设计素材 -->
+        <div class="category-card p-4">
+            <h3 class="category-title">🎨 设计素材</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <a href="https://www.hippter.com/" class="resource-link" target="_blank" rel="noopener">HiPPTer（PPT模板）</a>
+                    <a href="https://www.58pic.com/" class="resource-link" target="_blank" rel="noopener">千图网（平面设计）</a>
+                    <a href="https://www.chuangkit.com/" class="resource-link" target="_blank" rel="noopener">创客贴（在线设计）</a>
+                    <a href="https://www.iconfont.cn/" class="resource-link" target="_blank" rel="noopener">阿里图标库（矢量图标）</a>
+                    <a href="https://www.logosc.cn/" class="resource-link" target="_blank" rel="noopener">LOGO设计（智能生成）</a>
+                </div>
+                <div class="col-md-4">
+                    <a href="https://www.uisdc.com/" class="resource-link" target="_blank" rel="noopener">优设网（设计教程）</a>
+                    <a href="https://www.zcool.com.cn/" class="resource-link" target="_blank" rel="noopener">站酷（设计师社区）</a>
+                    <a href="https://www.brusheezy.com/" class="resource-link" target="_blank" rel="noopener">Brusheezy（笔刷素材）</a>
+                    <a href="https://www.freepik.com/" class="resource-link" target="_blank" rel="noopener">Freepik（矢量图库）</a>
+                    <a href="https://www.colorhunt.co/" class="resource-link" target="_blank" rel="noopener">ColorHunt（配色方案）</a>
+                </div>
+            </div>
         </div>
 
-        <!-- 其他分类结构类似... -->
+        <!-- 电子书资源 -->
+        <div class="category-card p-4">
+            <h3 class="category-title">📚 电子书</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <a href="https://z-lib.id/" class="resource-link" target="_blank" rel="noopener">Z-Library（全球最大库）</a>
+                    <a href="https://www.gutenberg.org/" class="resource-link" target="_blank" rel="noopener">古腾堡计划（公版书）</a>
+                    <a href="https://www.jiumodiary.com/" class="resource-link" target="_blank" rel="noopener">鸠摩搜索（聚合搜索）</a>
+                    <a href="https://www.pdfdrive.com/" class="resource-link" target="_blank" rel="noopener">PDF Drive（PDF专搜）</a>
+                    <a href="https://libgen.is/" class="resource-link" target="_blank" rel="noopener">Libgen（科学文献）</a>
+                </div>
+                <div class="col-md-4">
+                    <a href="https://www.kgbook.com/" class="resource-link" target="_blank" rel="noopener">苦瓜书盘（简体中文）</a>
+                    <a href="https://www.d4j.cn/" class="resource-link" target="_blank" rel="noopener">读秀学术搜索</a>
+                    <a href="https://www.owllook.net/" class="resource-link" target="_blank" rel="noopener">Owlook（小说搜索）</a>
+                    <a href="https://www.manybooks.net/" class="resource-link" target="_blank" rel="noopener">ManyBooks（外文书籍）</a>
+                    <a href="https://www.free-ebooks.net/" class="resource-link" target="_blank" rel="noopener">Free-eBooks（免费注册）</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 影视资源 -->
+        <div class="category-card p-4">
+            <h3 class="category-title">🎬 影视动漫</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <a href="https://www.ifsp.tv/" class="resource-link" target="_blank" rel="noopener">爱飞速影视（高清资源）</a>
+                    <a href="https://www.yanetflix.com/" class="resource-link" target="_blank" rel="noopener">Yanetflix（奈飞替代）</a>
+                    <a href="https://www.mvcat.com/" class="resource-link" target="_blank" rel="noopener">电影导航（分类检索）</a>
+                    <a href="https://www.agefans.tv/" class="resource-link" target="_blank" rel="noopener">AGE动漫（日本番剧）</a>
+                    <a href="https://www.zzzfun.com/" class="resource-link" target="_blank" rel="noopener">ZZZFun（弹幕视频）</a>
+                </div>
+                <div class="col-md-4">
+                    <a href="https://www.libvio.me/" class="resource-link" target="_blank" rel="noopener">LIBVIO（蓝光画质）</a>
+                    <a href="https://www.novipnoad.com/" class="resource-link" target="_blank" rel="noopener">NO视频（无广告）</a>
+                    <a href="https://www.dy2018.com/" class="resource-link" target="_blank" rel="noopener">电影天堂（迅雷下载）</a>
+                    <a href="https://www.yinfans.me/" class="resource-link" target="_blank" rel="noopener">音范丝（4K资源）</a>
+                    <a href="https://www.btnull.org/" class="resource-link" target="_blank" rel="noopener">BTNull（磁力聚合）</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 编程开发 -->
+        <div class="category-card p-4">
+            <h3 class="category-title">💻 编程开发</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <a href="https://github.com/" class="resource-link" target="_blank" rel="noopener">GitHub（代码托管）</a>
+                    <a href="https://codepen.io/" class="resource-link" target="_blank" rel="noopener">CodePen（前端开发）</a>
+                    <a href="https://www.freecodecamp.org/" class="resource-link" target="_blank" rel="noopener">freeCodeCamp（编程学习）</a>
+                    <a href="https://jsfiddle.net/" class="resource-link" target="_blank" rel="noopener">JSFiddle（代码测试）</a>
+                    <a href="https://replit.com/" class="resource-link" target="_blank" rel="noopener">Replit（在线IDE）</a>
+                </div>
+                <div class="col-md-4">
+                    <a href="https://www.runoob.com/" class="resource-link" target="_blank" rel="noopener">菜鸟教程（中文教程）</a>
+                    <a href="https://devdocs.io/" class="resource-link" target="_blank" rel="noopener">DevDocs（API文档）</a>
+                    <a href="https://stackoverflow.com/" class="resource-link" target="_blank" rel="noopener">Stack Overflow（技术问答）</a>
+                    <a href="https://www.learncpp.com/" class="resource-link" target="_blank" rel="noopener">Learn C++（C++教程）</a>
+                    <a href="https://www.w3schools.com/" class="resource-link" target="_blank" rel="noopener">W3Schools（Web开发）</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 办公工具 -->
+        <div class="category-card p-4">
+            <h3 class="category-title">📄 办公工具</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <a href="https://docs.qq.com/" class="resource-link" target="_blank" rel="noopener">腾讯文档（在线协作）</a>
+                    <a href="https://shimo.im/" class="resource-link" target="_blank" rel="noopener">石墨文档（多人编辑）</a>
+                    <a href="https://www.processon.com/" class="resource-link" target="_blank" rel="noopener">ProcessOn（流程图）</a>
+                    <a href="https://www.trello.com/" class="resource-link" target="_blank" rel="noopener">Trello（项目管理）</a>
+                    <a href="https://www.yuque.com/" class="resource-link" target="_blank" rel="noopener">语雀（知识库）</a>
+                </div>
+                <div class="col-md-4">
+                    <a href="https://www.jianguoyun.com/" class="resource-link" target="_blank" rel="noopener">坚果云（文件同步）</a>
+                    <a href="https://www.liuchengtu.com/" class="resource-link" target="_blank" rel="noopener">流程图（在线制作）</a>
+                    <a href="https://www.pdfescape.com/" class="resource-link" target="_blank" rel="noopener">PDFescape（PDF编辑）</a>
+                    <a href="https://smallseotools.com/" class="resource-link" target="_blank" rel="noopener">SEO工具包</a>
+                    <a href="https://www.airtable.com/" class="resource-link" target="_blank" rel="noopener">Airtable（智能表格）</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 学习平台 -->
+        <div class="category-card p-4">
+            <h3 class="category-title">🎓 学习平台</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <a href="https://www.icourse163.org/" class="resource-link" target="_blank" rel="noopener">中国大学MOOC</a>
+                    <a href="https://www.coursera.org/" class="resource-link" target="_blank" rel="noopener">Coursera（国际课程）</a>
+                    <a href="https://www.edx.org/" class="resource-link" target="_blank" rel="noopener">edX（名校课程）</a>
+                    <a href="https://www.khanacademy.org/" class="resource-link" target="_blank" rel="noopener">可汗学院</a>
+                    <a href="https://www.ted.com/" class="resource-link" target="_blank" rel="noopener">TED演讲</a>
+                </div>
+                <div class="col-md-4">
+                    <a href="https://www.duolingo.com/" class="resource-link" target="_blank" rel="noopener">多邻国（语言学习）</a>
+                    <a href="https://www.codecademy.com/" class="resource-link" target="_blank" rel="noopener">Codecademy（编程）</a>
+                    <a href="https://www.udacity.com/" class="resource-link" target="_blank" rel="noopener">Udacity（纳米学位）</a>
+                    <a href="https://ocw.mit.edu/" class="resource-link" target="_blank" rel="noopener">MIT公开课</a>
+                    <a href="https://www.zhihu.com/special" class="resource-link" target="_blank" rel="noopener">知乎盐选（精选内容）</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 图片视频 -->
+        <div class="category-card p-4">
+            <h3 class="category-title">📸 图片视频</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <a href="https://unsplash.com/" class="resource-link" target="_blank" rel="noopener">Unsplash（高清图片）</a>
+                    <a href="https://pixabay.com/" class="resource-link" target="_blank" rel="noopener">Pixabay（免费商用）</a>
+                    <a href="https://www.pexels.com/" class="resource-link" target="_blank" rel="noopener">Pexels（创意图片）</a>
+                    <a href="https://www.videvo.net/" class="resource-link" target="_blank" rel="noopener">Videvo（视频素材）</a>
+                    <a href="https://coverr.co/" class="resource-link" target="_blank" rel="noopener">Coverr（网页背景视频）</a>
+                </div>
+                <div class="col-md-4">
+                    <a href="https://www.canva.com/" class="resource-link" target="_blank" rel="noopener">Canva（在线设计）</a>
+                    <a href="https://www.remove.bg/" class="resource-link" target="_blank" rel="noopener">Remove.bg（AI抠图）</a>
+                    <a href="https://www.befunky.com/" class="resource-link" target="_blank" rel="noopener">BeFunky（图片编辑）</a>
+                    <a href="https://www.kapwing.com/" class="resource-link" target="_blank" rel="noopener">Kapwing（视频剪辑）</a>
+                    <a href="https://www.clipchamp.com/" class="resource-link" target="_blank" rel="noopener">Clipchamp（微软视频工具）</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 游戏娱乐 -->
+        <div class="category-card p-4">
+            <h3 class="category-title">🎮 游戏娱乐</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <a href="https://store.steampowered.com/" class="resource-link" target="_blank" rel="noopener">Steam（免费游戏）</a>
+                    <a href="https://www.epicgames.com/" class="resource-link" target="_blank" rel="noopener">Epic周免游戏</a>
+                    <a href="https://www.itch.io/" class="resource-link" target="_blank" rel="noopener">itch.io（独立游戏）</a>
+                    <a href="https://www.kongregate.com/" class="resource-link" target="_blank" rel="noopener">Kongregate（小游戏）</a>
+                    <a href="https://www.miniclip.com/" class="resource-link" target="_blank" rel="noopener">Miniclip（经典游戏）</a>
+                </div>
+                <div class="col-md-4">
+                    <a href="https://www.crazygames.com/" class="resource-link" target="_blank" rel="noopener">CrazyGames（HTML5游戏）</a>
+                    <a href="https://poki.com/" class="resource-link" target="_blank" rel="noopener">Poki（多人在线）</a>
+                    <a href="https://www.roblox.com/" class="resource-link" target="_blank" rel="noopener">Roblox（创作平台）</a>
+                    <a href="https://www.chess.com/" class="resource-link" target="_blank" rel="noopener">Chess.com（国际象棋）</a>
+                    <a href="https://lichess.org/" class="resource-link" target="_blank" rel="noopener">Lichess（开源棋类）</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 网络安全 -->
+        <div class="category-card p-4">
+            <h3 class="category-title">🔒 网络安全</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <a href="https://www.virustotal.com/" class="resource-link" target="_blank" rel="noopener">VirusTotal（病毒检测）</a>
+                    <a href="https://haveibeenpwned.com/" class="resource-link" target="_blank" rel="noopener">HIBP（数据泄露查询）</a>
+                    <a href="https://monitor.firefox.com/" class="resource-link" target="_blank" rel="noopener">Firefox Monitor</a>
+                    <a href="https://www.ssllabs.com/" class="resource-link" target="_blank" rel="noopener">SSL Labs（证书检测）</a>
+                    <a href="https://www.wireshark.org/" class="resource-link" target="_blank" rel="noopener">Wireshark（流量分析）</a>
+                </div>
+                <div class="col-md-4">
+                    <a href="https://nmap.org/" class="resource-link" target="_blank" rel="noopener">Nmap（端口扫描）</a>
+                    <a href="https://www.malwarebytes.com/" class="resource-link" target="_blank" rel="noopener">Malwarebytes（恶意软件清除）</a>
+                    <a href="https://www.grc.com/" class="resource-link" target="_blank" rel="noopener">Gibson Research（安全工具）</a>
+                    <a href="https://www.openssl.org/" class="resource-link" target="_blank" rel="noopener">OpenSSL（加密工具包）</a>
+                    <a href="https://www.kali.org/" class="resource-link" target="_blank" rel="noopener">Kali Linux（渗透测试）</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 综合导航 -->
+        <div class="category-card p-4">
+            <h3 class="category-title">🌐 综合导航</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <a href="https://www.chongbuluo.com/" class="resource-link" target="_blank" rel="noopener">虫部落（聚合搜索）</a>
+                    <a href="https://www.adzhp.com/" class="resource-link" target="_blank" rel="noopener">爱达杂货铺（工具导航）</a>
+                    <a href="https://www.giffox.com/" class="resource-link" target="_blank" rel="noopener">Giffox（设计师导航）</a>
+                    <a href="https://www.egouz.com/" class="resource-link" target="_blank" rel="noopener">EGOUZ（国外网站导航）</a>
+                    <a href="https://www.portaly.cc/" class="resource-link" target="_blank" rel="noopener">Portaly（个人导航页）</a>
+                </div>
+                <div class="col-md-4">
+                    <a href="https://www.ulapia.com/" class="resource-link" target="_blank" rel="noopener">优流（资源导航）</a>
+                    <a href="https://www.similarweb.com/" class="resource-link" target="_blank" rel="noopener">SimilarWeb（网站分析）</a>
+                    <a href="https://www.producthunt.com/" class="resource-link" target="_blank" rel="noopener">Product Hunt（新产品发现）</a>
+                    <a href="https://alternativeto.net/" class="resource-link" target="_blank" rel="noopener">AlternativeTo（替代方案）</a>
+                    <a href="https://www.goody25.com/" class="resource-link" target="_blank" rel="noopener">Goody25（马来西亚导航）</a>
+                </div>
+            </div>
+        </div>
+		
+      © freecn.org 免费 工具 资源
 
     </div>
 
-    <!-- 动态波浪背景脚本 -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <!-- 动态背景 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
     <script>
-        // 基于网页6的波浪动画实现:cite[6]
         function setup() {
-            createCanvas(windowWidth, windowHeight);
+            let canvas = createCanvas(windowWidth, windowHeight);
+            canvas.position(0, 0);
+            canvas.style('z-index', '-1');
+            noStroke();
         }
+
         function draw() {
-            background(255, 50);
-            // 波浪动画代码...
+            background(79, 172, 254, 10);
+            for (let i = 0; i < 3; i++) {
+                fill(255, 50 + i * 30);
+                beginShape();
+                for (let x = 0; x <= width; x += 20) {
+                    let angle = millis() * 0.0003 * (i + 1) + x * 0.015;
+                    let y = map(sin(angle), -1, 1, height * 0.6, height * 0.9);
+                    vertex(x, y);
+                }
+                vertex(width, height);
+                vertex(0, height);
+                endShape(CLOSE);
+            }
         }
+
         windowResized = () => resizeCanvas(windowWidth, windowHeight);
     </script>
 </body>
